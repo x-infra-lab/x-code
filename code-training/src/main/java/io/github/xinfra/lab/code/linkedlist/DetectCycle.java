@@ -1,9 +1,10 @@
 package io.github.xinfra.lab.code.linkedlist;
 
-public class LC160 {
+public class DetectCycle {
+    // https://leetcode.cn/problems/linked-list-cycle-ii/
 
-    // https://leetcode.cn/problems/intersection-of-two-linked-lists/description/
-    public class ListNode {
+
+    class ListNode {
         int val;
         ListNode next;
 
@@ -13,12 +14,12 @@ public class LC160 {
         }
     }
 
+
     public class Solution {
-        public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        public ListNode detectCycle(ListNode head) {
 
             // todo
             return null;
         }
     }
-
 }
