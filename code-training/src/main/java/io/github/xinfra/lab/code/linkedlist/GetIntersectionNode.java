@@ -16,9 +16,14 @@ public class GetIntersectionNode {
     public class Solution {
 
         public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+            ListNode posA = headA;
+            ListNode posB= headB;
 
-            // todo
-            return null;
+            while (posA != posB){
+                posA = posA == null? headB : posA.next;
+                posB = posB == null? headA : posB.next;
+            }
+            return posA;
         }
 
     }
