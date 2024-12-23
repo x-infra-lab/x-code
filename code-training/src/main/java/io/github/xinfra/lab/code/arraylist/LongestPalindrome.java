@@ -5,42 +5,47 @@ public class LongestPalindrome {
     //https://leetcode.cn/problems/longest-palindromic-substring/
 
 
-    class Solution {
+    // dp
+//    class Solution {
+//        public String longestPalindrome(String s) {
+//            // todo
+//            return null;
+//        }
+//    }
+
+ class Solution {
         public String longestPalindrome(String s) {
-            char[] chars = s.toCharArray();
-            int[] dp = new int[chars.length];
-
-            for (int i = 1; i < chars.length; i++) {
-                dp[i] = 1;
-            }
-
-            int maxLength = 1;
+            char[] charArray = s.toCharArray();
+            int maxLen = 1;
             int startIdx = 0;
-            for (int i = 1; i < chars.length; i++) {
-                int prvIdx;
-                if (dp[i - 1] == 1) {
-                    prvIdx = i - 1;
-                    if (prvIdx >= 0) {
-                        if (chars[i] == chars[prvIdx]) {
-                            dp[i] = dp[i - 1] + 1;
-                        }
+            for (int i = 0; i < charArray.length; i++) {
+                int l1 = longestPalindrome(charArray, i, i);
+                int l2 = longestPalindrome(charArray, i, i + 1);
+                int l = Math.max(l1, l2);
+                if (l > maxLen) {
+                    maxLen = l;
+                    if (l % 2 == 0) {
+                        startIdx = i - l / 2 + 1;
+                    } else {
+                        startIdx = i - l / 2;
                     }
-                } else {
-                    prvIdx = i - dp[i - 1] - 1;
-                    if (prvIdx >= 0) {
-                        if (chars[i] == chars[prvIdx]) {
-                            dp[i] = dp[i - 1] + 2;
-                        }
-                    }
-                }
-
-                if (dp[i] > maxLength) {
-                    maxLength = dp[i];
-                    startIdx = prvIdx;
                 }
             }
 
-            return s.substring(startIdx, maxLength);
+            return s.substring(startIdx, startIdx + maxLen);
+        }
+
+        private int longestPalindrome(char[] charArray, int l, int r) {
+            int len = 0;
+            while (l >= 0 && r < charArray.length) {
+                if (charArray[l] != charArray[r]) {
+                    break;
+                }
+                len = r - l + 1;
+                l--;
+                r++;
+            }
+            return len;
         }
     }
 }
