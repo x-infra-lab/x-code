@@ -17,11 +17,11 @@ public class GetIntersectionNode {
 
         public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
             ListNode posA = headA;
-            ListNode posB= headB;
+            ListNode posB = headB;
 
-            while (posA != posB){
-                posA = posA == null? headB : posA.next;
-                posB = posB == null? headA : posB.next;
+            while (posA != posB) {
+                posA = posA == null ? headB : posA.next;
+                posB = posB == null ? headA : posB.next;
             }
             return posA;
         }
