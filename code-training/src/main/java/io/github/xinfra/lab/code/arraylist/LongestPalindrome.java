@@ -8,12 +8,35 @@ public class LongestPalindrome {
     // dp
 //    class Solution {
 //        public String longestPalindrome(String s) {
-//            // todo
-//            return null;
+//            char[] charArray = s.toCharArray();
+//            int len = charArray.length;
+//
+//            boolean[][] dp = new boolean[len][len];
+//            for (int i = 0; i < len; i++){
+//                dp[i][i] = true;
+//            }
+//            int maxLen = 1;
+//            int startIdx = 0;
+//            for (int l = 2; l <= len; l ++){
+//                for (int i = 0; i < len; i++){
+//                    int j = i + l -1;
+//                    if (j < len && charArray[i] == charArray[j]){
+//                        if (j-i == 1 || (i+1 < len && j-1 >=0 && dp[i+1][j-1])) {
+//                            dp[i][j] = true;
+//                            if (l > maxLen){
+//                                maxLen = l;
+//                                startIdx = i;
+//                            }
+//                        }
+//                    }
+//
+//                }
+//            }
+//            return s.substring(startIdx, startIdx+maxLen);
 //        }
 //    }
 
- class Solution {
+    class Solution {
         public String longestPalindrome(String s) {
             char[] charArray = s.toCharArray();
             int maxLen = 1;
