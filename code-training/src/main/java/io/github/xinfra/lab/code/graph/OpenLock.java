@@ -1,14 +1,12 @@
 package io.github.xinfra.lab.code.graph;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Queue;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class OpenLock {
 
